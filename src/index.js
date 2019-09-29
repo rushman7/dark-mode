@@ -9,6 +9,7 @@ import "./styles.scss";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
+  const [currCoin, setCurrCoin] = useState({ coin: 'Bitcoin'});
 
   useEffect(() => {
     axios
@@ -19,11 +20,18 @@ const App = () => {
       .catch(err => console.log(err));
   }, []);
 
+  const handleChange = event => {
+    setCurrCoin(oldCoin => ({
+      ...oldCoin,
+      coin: event.target.value,
+    }));
+    console.log(currCoin.coin);
+  };
 
   return (
     <div className="App">
       <Navbar />
-      <Charts coinData={coinData} />
+      <Charts coinData={coinData} currCoin={currCoin} handleChange={handleChange}/>
     </div>
   );
 };

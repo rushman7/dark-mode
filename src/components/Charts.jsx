@@ -1,10 +1,13 @@
 import React from "react";
 import Chart from "./Chart";
+import { Dropdown } from './Dropdown';
 
-const Charts = ({ coinData }) => {
+const Charts = ({ coinData, handleChange, currCoin }) => {
+  let filtered = coinData.filter(coinName => coinName.name === currCoin.coin) 
   return (
     <div className="charts">
-      {coinData.map(coin => (
+      <Dropdown coinData={coinData} handleChange={handleChange} />
+      {filtered.map(coin => (
         <div className="chart__container" key={coin.name}>
           <h2 className="coin__title">{coin.name}</h2>
           <h4 className="coin__symbol">{coin.symbol}</h4>
