@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useDarkMode } from './hooks/useDarkMode';
 import axios from "axios";
 
 import Charts from "./components/Charts";
@@ -20,12 +19,10 @@ const App = () => {
       .catch(err => console.log(err));
   }, []);
 
-  
+
   return (
     <div className="App">
-      <Navbar 
-      
-      />
+      <Navbar />
       <Charts coinData={coinData} />
     </div>
   );
