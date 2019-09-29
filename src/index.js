@@ -25,7 +25,6 @@ const App = () => {
       ...oldCoin,
       coin: event.target.value,
     }));
-    console.log(currCoin.coin);
   };
 
   return (
